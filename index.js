@@ -1,10 +1,5 @@
 import * as THREE from "three"
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
-import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js"
-
-
-//Iimport slime
-// const slimeURL = new URL("Tabby_Slime.stl", import.meta.url)
 
 //Scene and canvas
 const canvas = document.querySelector("canvas.webgl")
@@ -100,13 +95,6 @@ scene.add(plane4);
 
 
 //Slime
-const loader = new GLTFLoader();
-
-loader.load( 'Tabby_Slime.stl', function ( gltf ) {
-
-	scene.add( gltf.scene );
-
-})
 //Animate
 function animate(){
     requestAnimationFrame(animate)

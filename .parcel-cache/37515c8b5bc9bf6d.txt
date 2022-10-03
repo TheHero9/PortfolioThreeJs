@@ -1,0 +1,12 @@
+11
+114C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\.gitignore133092715829944795 0
+116C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\package.json133092715841477150 0
+108C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\dist133092715841456394 1
+114C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\index.html133092715841466360 0
+130C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\dist\index.3d214d75.js.map133092715841456394 0
+126C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\dist\index.3d214d75.js133092715841333709 0
+112C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\index.js133092715841466360 0
+121C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\package-lock.json133092715841476334 0
+119C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\Tabby_Slime.stl133092715841029831 0
+119C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\dist\index.html133092715841456394 0
+133C:\Users\User\OneDrive - University of National and World Economy\desktop\Sites\PortfolioThreeJs AAAAAA\dist\Tabby_Slime.ae9325e3.stl133092715841252975 0
