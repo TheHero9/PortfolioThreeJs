@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
+import universe from "./universe.jpg"
 
 //Scene and canvas
 const canvas = document.querySelector("canvas.webgl")
@@ -48,7 +49,7 @@ const geometryPlane1 = new THREE.PlaneGeometry( 5, 5 );
 const materialPlane1 = new THREE.MeshBasicMaterial( {
     color: 0xFFFFFF,
     side: THREE.DoubleSide,
-    wireframe: true} );
+    wireframe: false} );
 const plane1 = new THREE.Mesh( geometryPlane1, materialPlane1 );
 plane1.position.set(0,2.5,-5)
 scene.add( plane1 );
@@ -58,7 +59,7 @@ const geometryPlane2 = new THREE.PlaneGeometry( 5, 5 );
 const materialPlane2 = new THREE.MeshBasicMaterial( {
     color: 0xFFFFFF,
     side: THREE.DoubleSide,
-    wireframe: true} );
+    wireframe: false} );
 const plane2 = new THREE.Mesh( geometryPlane2, materialPlane2 );
 plane2.position.set(0,2.5, 5)
 scene.add( plane2 );
@@ -68,33 +69,31 @@ const geometryPlane3 = new THREE.PlaneGeometry( 5, 5 );
 const materialPlane3 = new THREE.MeshBasicMaterial( {
     color: 0xFFFFFF,
     side: THREE.DoubleSide,
-    wireframe: true} );
+    wireframe: false} );
 const plane3 = new THREE.Mesh( geometryPlane3, materialPlane3 );
 plane3.position.set(-5, 2.5, 0)
 plane3.rotation.y = -0.5 * Math.PI
 scene.add(plane3);
 
 //Plane 4
-const geometryPlane4 = new THREE.PlaneGeometry( 5, 5 );
-const materialPlane4 = new THREE.MeshBasicMaterial( {
-    color: 0xFFFFFF,
-    side: THREE.DoubleSide,
-    wireframe: true} );
-const plane4 = new THREE.Mesh( geometryPlane4, materialPlane4 );
-plane4.position.set(5, 2.5, 0)
-plane4.rotation.y = -0.5 * Math.PI
-scene.add(plane4);
+    const geometryPlane4 = new THREE.PlaneGeometry( 5, 5 );
+        const materialPlane4 = new THREE.MeshBasicMaterial( {
+            color: 0xFFFFFF,
+            side: THREE.DoubleSide,
+            wireframe: false} );
+        const plane4 = new THREE.Mesh( geometryPlane4, materialPlane4 );
+        plane4.position.set(5, 2.5, 0)
+        plane4.rotation.y = -0.5 * Math.PI
+         scene.add(plane4);
 
-//Geometry
-// const geometry = new THREE.TorusGeometry(10,1,10,11, 10)
-// const mesh = new THREE.MeshBasicMaterial({
-//     color: 0x999999
-// })
-// const torus = new THREE.Mesh(geometry,mesh)
-// scene.add(torus)
+//Texture Loader
+const TextureLoader = new THREE.TextureLoader()
 
+plane1.material.map = TextureLoader.load(universe)
+plane2.material.map = TextureLoader.load(universe)
+plane3.material.map = TextureLoader.load(universe)
+plane4.material.map = TextureLoader.load(universe)
 
-//Slime
 //Animate
 function animate(){
     requestAnimationFrame(animate)
