@@ -1,7 +1,11 @@
 import * as THREE from "three"
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import universe from "./universe.jpg"
+import {FontLoader} from "three/examples/jsm/loaders/FontLoader"
+import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry"
+import typefaceFont from 'three/examples/fonts/helvetiker_regular.typeface.json'
 
+console.log(typefaceFont)
 //Scene and canvas
 const canvas = document.querySelector("canvas.webgl")
 const scene = new THREE.Scene()
@@ -37,7 +41,7 @@ const geometryPlane = new THREE.PlaneGeometry( 2, 2 );
 const materialPlane = new THREE.MeshBasicMaterial( {
     color: 0xffff00,
     side: THREE.DoubleSide,
-    wireframe: true} );
+    wireframe: false} );
 const plane = new THREE.Mesh( geometryPlane, materialPlane );
 scene.add( plane );
 plane.position.set(0,0,0)
@@ -93,6 +97,28 @@ plane1.material.map = TextureLoader.load(universe)
 plane2.material.map = TextureLoader.load(universe)
 plane3.material.map = TextureLoader.load(universe)
 plane4.material.map = TextureLoader.load(universe)
+
+
+//Text 
+const fontLoader = new FontLoader();
+fontLoader.load(typefaceFont)
+// fontLoader.load(
+//   '../helvetiker_regular.typeface.json',
+//   (droidFont) => {
+//     const textGeometry = new TextGeometry('three.js', {
+//       size: 20,
+//       height: 4,
+//       font: droidFont,
+//     });
+//     const textMaterial = new THREE.MeshNormalMaterial();
+//     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+//     textMesh.position.x = -45;
+//     textMesh.position.y = 0;
+//     test.scene.add(textMesh);
+//   }
+// );
+
+
 
 //Animate
 function animate(){
