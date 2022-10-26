@@ -1,11 +1,10 @@
 import * as THREE from "three"
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import universe from "./universe.jpg"
-import {FontLoader} from "three/examples/jsm/loaders/FontLoader"
-import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry"
 import typefaceFont from 'three/examples/fonts/helvetiker_regular.typeface.json'
+import {CSS2DRenderer, CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer"
 
-console.log(typefaceFont)
+
 //Scene and canvas
 const canvas = document.querySelector("canvas.webgl")
 const scene = new THREE.Scene()
@@ -30,7 +29,7 @@ renderer.render(scene, camera)
 
 //Orbit COntrols
 const controls = new OrbitControls(camera, renderer.domElement)
-controls.update
+controls.update()
 
 //Axis Helper
 const axisHelperr = new THREE.AxesHelper()
@@ -99,24 +98,42 @@ plane3.material.map = TextureLoader.load(universe)
 plane4.material.map = TextureLoader.load(universe)
 
 
-//Text 
-const fontLoader = new FontLoader();
-fontLoader.load(typefaceFont)
-// fontLoader.load(
-//   '../helvetiker_regular.typeface.json',
-//   (droidFont) => {
-//     const textGeometry = new TextGeometry('three.js', {
-//       size: 20,
-//       height: 4,
-//       font: droidFont,
-//     });
-//     const textMaterial = new THREE.MeshNormalMaterial();
-//     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-//     textMesh.position.x = -45;
-//     textMesh.position.y = 0;
-//     test.scene.add(textMesh);
-//   }
-// );
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(window.innerWidth, window.innerHeight)
+labelRenderer.domElement.style.position = "absolute"
+labelRenderer.domElement.style.top = "0px"
+labelRenderer.domElement.style.pointerEvents = "none"
+document.body.appendChild(labelRenderer.domElement)
+
+const p1 = document.createElement("p")
+p1.textContent = "Projects:"
+const cPointLabel1 = new CSS2DObject(p1)
+scene.add(cPointLabel1)
+cPointLabel1.position.set(0,4.5,-5)
+
+const p2 = document.createElement("p")
+p2.textContent = "About me:"
+const cPointLabel2 = new CSS2DObject(p2)
+scene.add(cPointLabel2)
+cPointLabel2.position.set(0,4.5,5)
+
+const p3 = document.createElement("p")
+p3.textContent = "Skills:"
+const cPointLabel3 = new CSS2DObject(p3)
+scene.add(cPointLabel3)
+cPointLabel3.position.set(5, 4.5, 0)
+
+const p4 = document.createElement("p")
+p4.textContent = "Skills:"
+const cPointLabel4 = new CSS2DObject(p4)
+scene.add(cPointLabel4)
+cPointLabel4.position.set(-5, 4.5, 0)
+
+
+const div = document.createElement("div")
+div.appendChild(p1)
+const divContainer = new CSS2DObject(div)
+scene.add(divContainer)
 
 
 
@@ -124,6 +141,15 @@ fontLoader.load(typefaceFont)
 function animate(){
     requestAnimationFrame(animate)
     renderer.render(scene,camera)
-}
+
+    labelRenderer.render(scene,camera)
+}    
 
 animate()
+
+window.addEventListener("resize", function(){
+    camera.aspect = window.innerWidth / this.window.innerHeight;
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    labelRenderer.setSize(this.window.innerWidth, this.window.innerHeight)
+})
