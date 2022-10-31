@@ -1,9 +1,18 @@
 import * as THREE from "three"
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import universe from "./universe.jpg"
+<<<<<<< HEAD
+import background from "./background.jpg"
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import typefaceFont from 'three/examples/fonts/helvetiker_regular.typeface.json'
 import {CSS2DRenderer, CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer"
 
+
+=======
+import typefaceFont from 'three/examples/fonts/helvetiker_regular.typeface.json'
+import {CSS2DRenderer, CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer"
+
+>>>>>>> cccad0d494f3194d7ccf11cd85bb55e4ce3791cd
 
 //Scene and canvas
 const canvas = document.querySelector("canvas.webgl")
@@ -13,6 +22,10 @@ const size = {
     width: window.innerWidth,
     height: window.innerWidth
 }
+
+
+const textureLoader = new THREE.TextureLoader()
+scene.background = textureLoader.load(background)
 
 //Camera
 const camera = new THREE.PerspectiveCamera(75, size.width/size.height)
@@ -91,7 +104,6 @@ scene.add(plane3);
 
 //Texture Loader
 const TextureLoader = new THREE.TextureLoader()
-
 plane1.material.map = TextureLoader.load(universe)
 plane2.material.map = TextureLoader.load(universe)
 plane3.material.map = TextureLoader.load(universe)
@@ -128,14 +140,28 @@ p4.textContent = "Skills:"
 const cPointLabel4 = new CSS2DObject(p4)
 scene.add(cPointLabel4)
 cPointLabel4.position.set(-5, 4.5, 0)
+<<<<<<< HEAD
+=======
 
 
 const div = document.createElement("div")
 div.appendChild(p1)
 const divContainer = new CSS2DObject(div)
 scene.add(divContainer)
+>>>>>>> cccad0d494f3194d7ccf11cd85bb55e4ce3791cd
 
 
+const div5 = document.createElement("div")
+div5.appendChild(p1)
+const divContainer = new CSS2DObject(div5)
+scene.add(divContainer)
+
+
+// const loader = new GLTFLoader()
+// loader.load("../PortfolioThreeJs/scene.gltf", function(gltf){
+//     scene.add(gltf.scene);
+//     renderer.render(scene, camera)
+// })
 
 //Animate
 function animate(){

@@ -1,13 +1,38 @@
 {
-  
+  
   "dependencies": {
-    "three": "^0.145.0"
+  
+    
+  "three": "^0.145.0"
+  
   },
+  
   "devDependencies": {
-    "buffer": "^6.0.3",
-    "parcel-reporter-static-files-copy": "^1.4.0"
+  
+    
+  "buffer": "^6.0.3",
+  
+    
+  "parcel-reporter-static-files-copy": "^1.4.0"
+  
   },
+  
   "type": "module",
-  "extends": ["@parcel/config-default"],
-  "reporters":  ["...", "parcel-reporter-static-files-copy"]
+  
+  "extends": [
+  
+    
+  "@parcel/config-default"
+  
+  ],
+  
+  "reporters": [
+  
+    
+  "...",
+  
+    
+  "parcel-reporter-static-files-copy"
+  
+  ]
 }
