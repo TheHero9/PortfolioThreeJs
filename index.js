@@ -1,18 +1,12 @@
 import * as THREE from "three"
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import universe from "./universe.jpg"
-<<<<<<< HEAD
 import background from "./background.jpg"
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import typefaceFont from 'three/examples/fonts/helvetiker_regular.typeface.json'
 import {CSS2DRenderer, CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer"
 
 
-=======
-import typefaceFont from 'three/examples/fonts/helvetiker_regular.typeface.json'
-import {CSS2DRenderer, CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer"
-
->>>>>>> cccad0d494f3194d7ccf11cd85bb55e4ce3791cd
 
 //Scene and canvas
 const canvas = document.querySelector("canvas.webgl")
@@ -118,7 +112,7 @@ labelRenderer.domElement.style.pointerEvents = "none"
 document.body.appendChild(labelRenderer.domElement)
 
 const p1 = document.createElement("p")
-p1.textContent = "Projects:"
+p1.textContent = "Projects: We"
 const cPointLabel1 = new CSS2DObject(p1)
 scene.add(cPointLabel1)
 cPointLabel1.position.set(0,4.5,-5)
@@ -140,28 +134,33 @@ p4.textContent = "Skills:"
 const cPointLabel4 = new CSS2DObject(p4)
 scene.add(cPointLabel4)
 cPointLabel4.position.set(-5, 4.5, 0)
-<<<<<<< HEAD
-=======
 
 
-const div = document.createElement("div")
-div.appendChild(p1)
-const divContainer = new CSS2DObject(div)
-scene.add(divContainer)
->>>>>>> cccad0d494f3194d7ccf11cd85bb55e4ce3791cd
+// const div = document.createElement("div")
+// div.appendChild(p1)
+// const divContainer = new CSS2DObject(div)
+// scene.add(divContainer)
 
-
-const div5 = document.createElement("div")
-div5.appendChild(p1)
-const divContainer = new CSS2DObject(div5)
-scene.add(divContainer)
 
 
 // const loader = new GLTFLoader()
-// loader.load("../PortfolioThreeJs/scene.gltf", function(gltf){
+// loader.load("shiba\scene.gltf", function(gltf){
 //     scene.add(gltf.scene);
-//     renderer.render(scene, camera)
+//     // renderer.render(scene, camera)
 // })
+
+let loadedModel;
+const glftLoader = new GLTFLoader();
+glftLoader.load('monkey.gltf', (gltfScene) => {
+  loadedModel = gltfScene;
+  console.log(loadedModel);
+  console.log("yes")
+
+//   gltfScene.scene.rotation.y = Math.PI / 8;
+//   gltfScene.scene.position.y = 3;
+//   gltfScene.scene.scale.set(10, 10, 10);
+//   test.scene.add(gltfScene.scene);
+});
 
 //Animate
 function animate(){
